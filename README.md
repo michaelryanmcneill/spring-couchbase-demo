@@ -34,7 +34,7 @@ oc patch deployments/db --patch "$(cat examples/db-patch-volume.yaml)"
 - Select `Setup New Cluster`.
 - For `Cluster Name` enter `Demo`.
 - For `Create Admin Username` leave the default `Administrator`.
-- For the password, enter a password. 
+- For the password, enter a password (store the password for later use). 
 - Accept the terms and select `Finish with Defaults`.
 
 8. Create a bucket in your new Couchbase cluster.
