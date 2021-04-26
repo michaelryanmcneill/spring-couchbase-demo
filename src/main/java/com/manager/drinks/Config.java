@@ -12,23 +12,21 @@ public class Config extends AbstractCouchbaseConfiguration {
     
     @Override
     protected List<String> getBootstrapHosts() {
-        return Collections.singletonList("db");
+        return Collections.singletonList(System.getenv("COUCHBASE_SERVICE_NAME"));
     }
     
     @Override
     protected String getBucketName() {
-        return "DrinkManager";
+        return System.getenv("COUCHBASE_BUCKET");
     }
     
     @Override
     protected String getBucketPassword() {
-        return "password";
+        return System.getenv("COUCHBASE_PASSWORD");
     }
     
     @Override
     protected String getUsername() {
-        return "Administrator";
+        return System.getenv("COUCHBASE_USERNAME");
     }
 }
-
-

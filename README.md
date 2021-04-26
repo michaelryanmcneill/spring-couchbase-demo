@@ -20,6 +20,7 @@ oc expose svc db --port=8091
 ```
 oc create -f examples/db-pvc.yaml
 ```
+> Important note: This sample is for vSphere clusters. If you are deploying to AWS or another cloud provider, ensure you update the StorageClass to prevent issues with unbound PVCs. 
 5. Change your application update strategy from rolling to recreate, to prevent issues when you add your persistent storage.
 ```
 oc patch deployments/db --patch "$(cat examples/db-patch-recreate.yaml)"
@@ -33,7 +34,7 @@ oc patch deployments/db --patch "$(cat examples/db-patch-volume.yaml)"
 - Select `Setup New Cluster`.
 - For `Cluster Name` enter `Demo`.
 - For `Create Admin Username` leave the default `Administrator`.
-- For the password, enter `password`. 
+- For the password, enter a password. 
 - Accept the terms and select `Finish with Defaults`.
 
 8. Create a bucket in your new Couchbase cluster.
@@ -43,8 +44,9 @@ oc patch deployments/db --patch "$(cat examples/db-patch-volume.yaml)"
 - Leave the rest of the fields set to the default and select `Add Bucket`. 
 
 9. Deploy the Spring application. 
+Ensure you replace the content in the `{{ }}`, for example `COUCHBASE_PASSWORD={{insert-user-defined-password}}` would become `COUCHBASE_PASSWORD=samplecomplexpassword.
 ```
-oc new-app --name=spring https://github.com/michaelryanmcneill/spring-couchbase-demo.git --image-stream=ubi8-openjdk-11:1.3
+oc new-app --name=spring https://github.com/michaelryanmcneill/spring-couchbase-demo.git --image-stream=ubi8-openjdk-11:1.3 -e COUCHBASE_SERVICE_NAME=db -e COUCHBASE_BUCKET=DrinkManager -e COUCHBASE_PASSWORD={{insert-user-defined-password}} -e COUCHBASE_USERNAME=Administrator
 ```
 10. Monitor the build process to ensure it completes successfully.
 ```
