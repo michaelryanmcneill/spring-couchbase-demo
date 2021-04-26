@@ -44,5 +44,59 @@ oc patch deployments/db --patch "$(cat examples/db-patch-volume.yaml)"
 
 9. Deploy the Spring application. 
 ```
-oc new-app --name=spring https://github.com/michaelryanmcneill/spring-couchbase-demo
+oc new-app --name=spring https://github.com/michaelryanmcneill/spring-couchbase-demo.git --image-stream=ubi8-openjdk-11:1.3
 ```
+10. Monitor the build process to ensure it completes successfully.
+```
+oc logs -f buildconfig/spring
+```
+11. Expose the Spring application via HTTP.
+```
+oc expose service/spring
+```
+
+Congratulations! You have successfully deployed the Spring application on OpenShift using Couchbase. Now follow the below guide to add drink recipes to your database!
+
+## How to Use the Application
+
+Using Postman, CURL, or another tool, submit payloads to the API. 
+
+### Add A Drink
+POST `http://{{url.to.app}}/drinks/`
+```json
+{
+    "id": "1",
+    "name": "Old Fashioned",
+    "alcohol": "bourbon",
+    "ingredients": [
+        "Woodford Reserve",
+        "Angostura Bitters",
+        "Water",
+        "Orange Peel",
+        "Sugar"
+    ]
+}
+```
+
+### Get a Drink by ID
+GET `http://{{url.to.app}}/drinks/{{id}}`
+
+### Update a Drink by ID
+PUT `http://{{url.to.app}}/drinks/{{id}}`
+```json
+{
+    "id": "1",
+    "name": "Old Fashioned",
+    "alcohol": "bourbon",
+    "ingredients": [
+        "Woodford Reserve",
+        "Angostura Bitters",
+        "Water",
+        "Orange Peel",
+        "Sugar Cube"
+    ]
+}
+```
+
+### Delete a Drink by ID
+DELETE `http://{{url.to.app}}/drinks/{{id}}`
