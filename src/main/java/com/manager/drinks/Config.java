@@ -17,7 +17,7 @@ public class Config extends AbstractCouchbaseConfiguration {
     
     @Override
     protected String getBucketName() {
-        return "default";
+        return "DrinkManager";
     }
     
     @Override
@@ -27,7 +27,7 @@ public class Config extends AbstractCouchbaseConfiguration {
     
     @Override
     protected String getUsername() {
-        return "admin";
+        return "Administrator";
     }
 }
 

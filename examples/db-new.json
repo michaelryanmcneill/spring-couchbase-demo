@@ -1,0 +1,369 @@
+{
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+        "annotations": {
+            "deployment.kubernetes.io/revision": "4",
+            "image.openshift.io/triggers": "[{\"from\":{\"kind\":\"ImageStreamTag\",\"name\":\"db:6.6.2\"},\"fieldPath\":\"spec.template.spec.containers[?(@.name==\\\"db\\\")].image\"}]",
+            "openshift.io/generated-by": "OpenShiftNewApp"
+        },
+        "creationTimestamp": "2021-04-26T15:03:01Z",
+        "generation": 5,
+        "labels": {
+            "app": "db",
+            "app.kubernetes.io/component": "db",
+            "app.kubernetes.io/instance": "db"
+        },
+        "managedFields": [
+            {
+                "apiVersion": "apps/v1",
+                "fieldsType": "FieldsV1",
+                "fieldsV1": {
+                    "f:metadata": {
+                        "f:annotations": {
+                            ".": {},
+                            "f:image.openshift.io/triggers": {},
+                            "f:openshift.io/generated-by": {}
+                        },
+                        "f:labels": {
+                            ".": {},
+                            "f:app": {},
+                            "f:app.kubernetes.io/component": {},
+                            "f:app.kubernetes.io/instance": {}
+                        }
+                    },
+                    "f:spec": {
+                        "f:progressDeadlineSeconds": {},
+                        "f:replicas": {},
+                        "f:revisionHistoryLimit": {},
+                        "f:selector": {},
+                        "f:template": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:openshift.io/generated-by": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:deployment": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:containers": {
+                                    "k:{\"name\":\"db\"}": {
+                                        ".": {},
+                                        "f:imagePullPolicy": {},
+                                        "f:name": {},
+                                        "f:ports": {
+                                            ".": {},
+                                            "k:{\"containerPort\":11207,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":11210,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":11211,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":18091,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":18092,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":18093,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":8091,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":8092,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":8093,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":8094,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            }
+                                        },
+                                        "f:resources": {},
+                                        "f:terminationMessagePath": {},
+                                        "f:terminationMessagePolicy": {},
+                                        "f:volumeMounts": {
+                                            ".": {},
+                                            "k:{\"mountPath\":\"/opt/couchbase/var\"}": {
+                                                ".": {},
+                                                "f:mountPath": {},
+                                                "f:name": {}
+                                            }
+                                        }
+                                    }
+                                },
+                                "f:dnsPolicy": {},
+                                "f:restartPolicy": {},
+                                "f:schedulerName": {},
+                                "f:securityContext": {},
+                                "f:terminationGracePeriodSeconds": {},
+                                "f:volumes": {
+                                    ".": {},
+                                    "k:{\"name\":\"db-volume-1\"}": {
+                                        ".": {},
+                                        "f:name": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "manager": "oc",
+                "operation": "Update",
+                "time": "2021-04-26T15:03:01Z"
+            },
+            {
+                "apiVersion": "apps/v1",
+                "fieldsType": "FieldsV1",
+                "fieldsV1": {
+                    "f:spec": {
+                        "f:template": {
+                            "f:spec": {
+                                "f:containers": {
+                                    "k:{\"name\":\"db\"}": {
+                                        "f:image": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "manager": "openshift-controller-manager",
+                "operation": "Update",
+                "time": "2021-04-26T15:03:04Z"
+            },
+            {
+                "apiVersion": "apps/v1",
+                "fieldsType": "FieldsV1",
+                "fieldsV1": {
+                    "f:spec": {
+                        "f:strategy": {
+                            "f:type": {}
+                        }
+                    }
+                },
+                "manager": "kubectl-patch",
+                "operation": "Update",
+                "time": "2021-04-26T15:40:18Z"
+            },
+            {
+                "apiVersion": "apps/v1",
+                "fieldsType": "FieldsV1",
+                "fieldsV1": {
+                    "f:spec": {
+                        "f:template": {
+                            "f:spec": {
+                                "f:volumes": {
+                                    "k:{\"name\":\"db-volume-1\"}": {
+                                        "f:persistentVolumeClaim": {
+                                            ".": {},
+                                            "f:claimName": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "manager": "Mozilla",
+                "operation": "Update",
+                "time": "2021-04-26T15:42:44Z"
+            },
+            {
+                "apiVersion": "apps/v1",
+                "fieldsType": "FieldsV1",
+                "fieldsV1": {
+                    "f:metadata": {
+                        "f:annotations": {
+                            "f:deployment.kubernetes.io/revision": {}
+                        }
+                    },
+                    "f:status": {
+                        "f:conditions": {
+                            ".": {},
+                            "k:{\"type\":\"Available\"}": {
+                                ".": {},
+                                "f:lastTransitionTime": {},
+                                "f:lastUpdateTime": {},
+                                "f:message": {},
+                                "f:reason": {},
+                                "f:status": {},
+                                "f:type": {}
+                            },
+                            "k:{\"type\":\"Progressing\"}": {
+                                ".": {},
+                                "f:lastTransitionTime": {},
+                                "f:lastUpdateTime": {},
+                                "f:message": {},
+                                "f:reason": {},
+                                "f:status": {},
+                                "f:type": {}
+                            }
+                        },
+                        "f:observedGeneration": {},
+                        "f:replicas": {},
+                        "f:unavailableReplicas": {},
+                        "f:updatedReplicas": {}
+                    }
+                },
+                "manager": "kube-controller-manager",
+                "operation": "Update",
+                "time": "2021-04-26T15:42:54Z"
+            }
+        ],
+        "name": "db",
+        "namespace": "spring-couchbase-demo",
+        "resourceVersion": "23100616",
+        "selfLink": "/apis/apps/v1/namespaces/spring-couchbase-demo/deployments/db",
+        "uid": "a832572e-e9b5-4ac9-80c0-92f7b7463750"
+    },
+    "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+            "matchLabels": {
+                "deployment": "db"
+            }
+        },
+        "strategy": {
+            "type": "Recreate"
+        },
+        "template": {
+            "metadata": {
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                },
+                "creationTimestamp": null,
+                "labels": {
+                    "deployment": "db"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "registry.connect.redhat.com/couchbase/server@sha256:187046a848f32233e7e92705c57fa864b1d373c2078a92b51c9706bec6e372e5",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "db",
+                        "ports": [
+                            {
+                                "containerPort": 11210,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 11211,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 18093,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 8092,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 8094,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 11207,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 18091,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 18092,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 8091,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 8093,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/opt/couchbase/var",
+                                "name": "db-volume-1"
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "db-volume-1",
+                        "persistentVolumeClaim": {
+                            "claimName": "couchbase-pvc"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "status": {
+        "conditions": [
+            {
+                "lastTransitionTime": "2021-04-26T15:42:44Z",
+                "lastUpdateTime": "2021-04-26T15:42:44Z",
+                "message": "Deployment does not have minimum availability.",
+                "reason": "MinimumReplicasUnavailable",
+                "status": "False",
+                "type": "Available"
+            },
+            {
+                "lastTransitionTime": "2021-04-26T15:03:01Z",
+                "lastUpdateTime": "2021-04-26T15:42:54Z",
+                "message": "ReplicaSet \"db-79646b8c8d\" is progressing.",
+                "reason": "ReplicaSetUpdated",
+                "status": "True",
+                "type": "Progressing"
+            }
+        ],
+        "observedGeneration": 5,
+        "replicas": 1,
+        "unavailableReplicas": 1,
+        "updatedReplicas": 1
+    }
+}

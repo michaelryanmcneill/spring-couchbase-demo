@@ -24,18 +24,13 @@ public class DrinkController {
     
     @RequestMapping("/")
     public String index() {
-        return "Welcome to the CRUD application!!";
+        return "Welcome to the Drink Recipe Manager demo app!";
     }
     
     @PostMapping("/drinks")
     public Drinks addDrinkPost(@RequestBody Drinks newDrink) {
         return drinkRepository.save(newDrink);
     }
-
-    /*@GetMapping("/drinks")
-    public Optional<Drinks> getDrinks {
-        return drinkRepository;
-    }*/
     
     @GetMapping("/drinks/{id}")
     public Optional<Drinks> getDrink(@PathVariable String id) {
@@ -43,16 +38,6 @@ public class DrinkController {
             return drinkRepository.findById(id);
         } else
             return Optional.empty();
-    }
-    
-    @GetMapping("/drinks/count")
-    public long countTotalDrinks() {
-        return drinkRepository.count();
-    }
-    
-    @GetMapping("/drinks/alcohol/{alcohol}")
-    public Drinks getDrinkByAlcohol(@PathVariable String alcohol) {
-        return drinkRepository.findByAlcohol(alcohol);
     }
     
     @DeleteMapping("/drinks/{id}")
@@ -74,9 +59,9 @@ public class DrinkController {
                                 .build())
                 );
         if (mayBeDrink.isPresent()) {
-            return "Drink Updated";
+            return "SUCCESS: Drink recipe has been updated!";
         } else {
-            return "Drink does not exist";
+            return "ERROR: Drink recipe does not exist.";
         }
     }
 }

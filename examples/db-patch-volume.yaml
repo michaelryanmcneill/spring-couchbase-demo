@@ -1,0 +1,10 @@
+spec:
+  template:
+    spec:
+      volumes:
+      - name: db-volume-1
+        persistentVolumeClaim:
+          claimName: couchbase-pvc
+        $retainKeys:
+        - name
+        - persistentVolumeClaim
