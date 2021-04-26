@@ -44,7 +44,7 @@ oc patch deployments/db --patch "$(cat examples/db-patch-volume.yaml)"
 - Leave the rest of the fields set to the default and select `Add Bucket`. 
 
 9. Deploy the Spring application. 
-Ensure you replace the content in the `{{ }}`, for example `COUCHBASE_PASSWORD={{insert-user-defined-password}}` would become `COUCHBASE_PASSWORD=samplecomplexpassword.
+Ensure you replace the content in the `{{ }}`, for example `COUCHBASE_PASSWORD={{insert-user-defined-password}}` would become `COUCHBASE_PASSWORD=samplecomplexpassword`.
 ```
 oc new-app --name=spring https://github.com/michaelryanmcneill/spring-couchbase-demo.git --image-stream=ubi8-openjdk-11:1.3 -e COUCHBASE_SERVICE_NAME=db -e COUCHBASE_BUCKET=DrinkManager -e COUCHBASE_PASSWORD={{insert-user-defined-password}} -e COUCHBASE_USERNAME=Administrator
 ```
